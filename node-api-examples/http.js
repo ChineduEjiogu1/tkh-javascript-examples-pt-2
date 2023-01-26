@@ -12,12 +12,18 @@ const server = http
       res.writeHead(200, "", {"Content-Type": "text/html"});
       res.write("<hl>Hello Home</hl>");
       res.end();
+    } else if(req.url === "/data"){
+      res.writeHead(200, "", {"Content-Type": "application/json"});
+      res.write(JSON.stringify({
+        data: {
+          name: "Chinedu"
+        }
+      }));
+      res.end();
     } else {
       res.writeHead(404);
       res.end();
     }
   });
 
-  server.listen(8080);
-
-  export default server;
+module.exports = server;
