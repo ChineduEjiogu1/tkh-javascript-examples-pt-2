@@ -15,8 +15,14 @@ describe("Testing the server", () => {
     })
 
     describe("Testing the /data route", () => {
-        it("/dta should get back a 200", (done) => {
-            done();
+        it("/data should get back a 200", (done) => {
+            req(server).get("/data").expect(200).end((err) => {
+                if(err){
+                    throw err;
+                } else {
+                    done();
+                }
+            })
         })
 
         it("/data should display my name", (done) => {
